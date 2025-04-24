@@ -11,9 +11,12 @@ const Sidebar = ({
   showLogout,
   logoutFn,
   radius = "10px",
-  Icon
+  Icon,
 }) => {
   const [open, setIsOpen] = React.useState(isOpen);
+  React.useEffect(() => {
+    setIsOpen(isOpen);
+  }, [isOpen]);
   return (
     <>
       {open && (
