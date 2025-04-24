@@ -1,0 +1,26 @@
+{
+  "name": "ui-sidebar-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "src"
+  ],
+  "keywords": [
+    "react",
+    "sidebar",
+    "component",
+    "ui"
+  ],
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jawad-Ali-Soomro/ui-sidebar-react.git"
+  },
+  "homepage": "https://github.com/Jawad-Ali-Soomro/ui-sidebar-react#readme",
+  "bugs": {
+    "url": "https://github.com/Jawad-Ali-Soomro/ui-sidebar-react/issues"
+  }
+}

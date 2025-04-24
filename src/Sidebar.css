@@ -1,0 +1,71 @@
+.open {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.1);
+}
+.animated-side {
+    width: 350px;
+    height: 100vh;
+    position: absolute;
+    animation: animateSidebar .5s linear;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.animated-side > .navigation {
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: inherit;
+    flex-direction: column;
+}
+
+.animated-side > .logo {
+    width: 200px;
+    margin-top: 20px;
+}
+
+.animated-side > .logout-btn  {
+    width: 320px;
+    height: 55px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    background: red;
+    border: none;
+    color: white;
+    font-weight: 600;
+    position: absolute;
+    bottom: 20px;
+    cursor: pointer;
+}
+.navigation > .nav-tile {
+    width: 280px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    p {
+        text-decoration: none;
+        font-size: 1.1rem;
+        background: inherit;
+        color: inherit;
+        font-family: inherit;
+    }
+   
+}
+
+@keyframes animateSidebar {
+    from {
+        transform: translateX(-100%);
+    } to {
+        transform: translateX(0);
+    }
+}
