@@ -1,6 +1,6 @@
 {
   "name": "ui-sidebar-react",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "index.js",
   "files": [
     "index.js",
@@ -15,6 +15,9 @@
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",

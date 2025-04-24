@@ -1,4 +1,4 @@
-# UI Sidebar React
+# Ui Sidebar React
 
 [![npm][version]][npm-url]
 [![License][license]][npm-url]
