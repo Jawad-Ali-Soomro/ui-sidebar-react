@@ -39,7 +39,7 @@ const Sidebar = ({
                     key={i}
                     style={{ background: tileColor, borderRadius: radius }}
                   >
-                    <Icon />
+                    {Icon && <Icon />}
                     <p>{item?.text}</p>
                   </a>
                 );
