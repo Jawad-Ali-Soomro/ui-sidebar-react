@@ -11,6 +11,7 @@ const Sidebar = ({
   showLogout,
   logoutFn,
   radius = "10px",
+  icon
 }) => {
   const [open, setIsOpen] = React.useState(isOpen);
   return (
@@ -35,6 +36,7 @@ const Sidebar = ({
                     key={i}
                     style={{ background: tileColor, borderRadius: radius }}
                   >
+                    <icon />
                     <p>{item?.text}</p>
                   </a>
                 );

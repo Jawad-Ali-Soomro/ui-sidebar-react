@@ -1,12 +1,27 @@
-# React + Vite
+# UI Sidebar React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![npm][version]][npm-url]
+[![License][license]][npm-url]
+[![Download][download]][npm-url]
 
-Currently, two official plugins are available:
+[version]: https://img.shields.io/npm/v/ui-sidebar-react.svg?style=flat-square
+[license]: https://img.shields.io/github/license/your-username/ui-sidebar-react?style=flat-square
+[download]: https://img.shields.io/npm/dt/ui-sidebar-react?style=flat-square
+[npm-url]: https://www.npmjs.com/package/ui-sidebar-react
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A lightweight, customizable React sidebar component with essential navigation features.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🎨 Customizable colors for all elements
+- 🖥️ Logo support
+- 🔘 Built-in logout functionality
+- 🟠 Active item highlighting
+- 🔳 Configurable border radius
+- 📱 Responsive design
+
+## Installation
+
+### npm
+```bash
+npm install ui-sidebar-react
