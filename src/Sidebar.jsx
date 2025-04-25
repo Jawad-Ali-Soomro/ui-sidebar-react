@@ -1,5 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
+import {
+  LiaAngleDownSolid,
+  LiaAngleUpSolid,
+  LiaArrowRightSolid,
+} from "react-icons/lia";
+
+const isValidUrl = (url) => {
+  try {
+    return Boolean(new URL(url));
+  } catch (e) {
+    return false;
+  }
+};
 
 const Sidebar = ({
   items = [],
@@ -10,12 +23,22 @@ const Sidebar = ({
   tileColor = "orange",
   showLogout,
   logoutFn,
-  radius = "10px"
+  radius = "10px",
 }) => {
-  const [open, setIsOpen] = React.useState(isOpen);
-  React.useEffect(() => {
+  const [open, setIsOpen] = useState(isOpen);
+  const [openSubmenus, setOpenSubmenus] = useState({});
+
+  useEffect(() => {
     setIsOpen(isOpen);
   }, [isOpen]);
+
+  const toggleSubMenu = (index) => {
+    setOpenSubmenus((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
   return (
     <>
       {open && (
@@ -28,28 +51,115 @@ const Sidebar = ({
             onClick={(e) => e.stopPropagation()}
             style={{ backgroundColor: bgColor, color: textColor }}
           >
-            <img className="logo" src={logo} alt="" />
+            {logo && <img className="logo" src={logo} alt="Logo" />}
             <div className="navigation">
               {items?.map((item, i) => {
-                const ItemIcon = item?.icon
-                return (
-                  <a
-                    href={item?.link}
-                    className="nav-tile"
-                    key={i}
-                    style={{ background: tileColor, borderRadius: radius }}
-                  >
-                      {ItemIcon && <ItemIcon />}
-                    <p>{item?.text}</p>
-                  </a>
-                );
+                const ItemIcon = item?.icon;
+                const hasSubLinks = item?.subLinks?.length > 0;
+                const hasLink = item?.link && isValidUrl(item.link);
+
+                if (hasSubLinks) {
+                  return (
+                    <div key={i} className="nav-tile submenu-tile">
+                      <div
+                        className="left-main flex"
+                        style={{
+                          background: tileColor,
+                          cursor: "pointer",
+                          borderRadius: radius,
+                        }}
+                        onClick={() => toggleSubMenu(i)}
+                      >
+                        <div className="left-wrap">
+                          <div
+                            className="icon flex"
+                            style={{ borderRadius: radius }}
+                          >
+                            {ItemIcon && <ItemIcon />}
+                          </div>
+                          <p>{item?.text}</p>
+                        </div>
+                        <div className="icon">
+                          {openSubmenus[i] ? (
+                            <LiaAngleUpSolid />
+                          ) : (
+                            <LiaAngleDownSolid />
+                          )}
+                        </div>
+                      </div>
+
+                      {openSubmenus[i] && (
+                        <div className="sub-menu">
+                          {item.subLinks.map((sub, idx) => {
+                            const SubIcon = sub?.icon;
+                            return (
+                              <a
+                                key={idx}
+                                href={sub.link}
+                                className="sub-link flex"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  background: tileColor,
+                                  borderRadius: radius,
+                                }}
+                              >
+                                {SubIcon && (
+                                  <div
+                                    className="icon flex"
+                                    style={{ borderRadius: radius }}
+                                  >
+                                    <SubIcon />
+                                  </div>
+                                )}
+                                <p>{sub.text}</p>
+                              </a>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                if (hasLink) {
+                  return (
+                    <a
+                      key={i}
+                      href={item.link}
+                      className="nav-tile flex"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        background: tileColor,
+                        borderRadius: radius,
+                      }}
+                    >
+                      <div className="left-main">
+                        <div className="left-wrap">
+                          <div
+                            className="icon flex"
+                            style={{ borderRadius: radius }}
+                          >
+                            {ItemIcon && <ItemIcon />}
+                          </div>
+                          <p>{item?.text}</p>
+                        </div>
+                        <div className="icon">
+                          <LiaArrowRightSolid />
+                        </div>
+                      </div>
+                    </a>
+                  );
+                }
               })}
             </div>
+
             {showLogout && (
               <button
                 className="logout-btn flex"
                 style={{ borderRadius: radius }}
-                onClick={() => logoutFn()}
+                onClick={logoutFn}
               >
                 Logout
               </button>

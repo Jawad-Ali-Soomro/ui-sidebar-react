@@ -20,7 +20,14 @@ A lightweight, customizable React sidebar component with essential navigation fe
 - 🔳 Configurable border radius
 - 📱 Responsive design
 
-## Installation
+## Install React Icons
+
+First you should have to install react-icons cause this sidebar uses react icons
+
+```bash
+npm i react-icons
+```
+## Install Sidebar
 
 ```bash
 npm i ui-sidebar-react
@@ -29,46 +36,46 @@ npm i ui-sidebar-react
 ## Usage
 
 ```jsx
-import Sidebar from "ui-sidebar-react";
-import { FaHome, FaUser, FaSetting } from "react-icons/fa";
+import './App.css'
+import { GrBundle } from 'react-icons/gr'
+import { useState } from 'react'
+import Sidebar from './assets/Sidebar'
+import { FaGithub, FaHome } from 'react-icons/fa'
+import { MdDashboard } from 'react-icons/md'
 
-const items = [
-  {
-    text: "Home",
-    link: "/home",
-    icon: FaHome,
-  },
-  {
-    text: "Profile",
-    link: "/profile",
-    icon: FaUser,
-  },
-  {
-    text: "Settings",
-    link: "/settings",
-    icon: FaSettings,
-  },
-];
-
-export default function App() {
-  const [isOpen, setIsOpen] = useState(true);
-
-  const handleLogout = () => {
-    console.log("User logged out");
-  };
+function App() {
+  const [showSidebar, setShowSidebar] = useState(true)
+  const dataItems = [
+    {
+      text: "My Package",
+      icon: MdDashboard,
+      subLinks: [
+        { text: "NPM", link: "https://www.npmjs.com/package/ui-sidebar-react", icon: FaHome },
+        { text: "GitHub", link: "https://github.com", icon: FaGithub }
+      ]
+    },
+    {
+      text: "GitHub",
+      icon: GrBundle,
+      link: "https://github.com"
+    },
+   
+  ];
 
   return (
-    <Sidebar
-      isOpen={isOpen} // Prop to show or hide Sidebar
-      items={items} // Array of items
-      logo="https://yourdomain.com/logo.png" // Replace with your logo
-      bgColor="#111" // replace with your bgColor
-      textColor="#fff" // replace with your text color
-      tileColor="orange" // replace with your tile color
-      showLogout={true} // show or hide logout button
-      logoutFn={handleLogout} // handle logout functions
-      radius="12px" // radius of tiles
-    />
-  );
+    <>
+      <Sidebar 
+        isOpen={showSidebar} 
+        tileColor='white' 
+        bgColor='orange' 
+        items={dataItems} 
+        radius='10px'
+        textColor='black'
+        logo={'/vite.svg'} 
+      />
+    </>
+  )
 }
+
+export default App
 ```

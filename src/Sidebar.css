@@ -49,21 +49,60 @@
 }
 .navigation > .nav-tile {
     width: 280px;
-    padding: 15px 20px;
     display: flex;
     justify-content: start;
-    gap: 5px;
-    align-items: center;
+    align-items: start;
     color: inherit;
     text-decoration: none;
-    p {
-        text-decoration: none;
-        font-size: 1.1rem;
-        background: inherit;
-        color: inherit;
-        font-family: inherit;
+    flex-direction: column;
+    .left-main {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 10px;
+        width: calc(100% - 20px);
+        align-items: center;
+        .left-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .icon {
+            display: flex;
+            display: flex;
+            font-size: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
     }
    
+    .sub-menu {
+        width: 100%;
+        gap: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 5px;
+        a {
+            width: calc(80% - 20px);
+            height: 45px;
+            padding: 0 10px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin-left: 20%;
+            text-decoration: none;
+            color: inherit;
+            gap: 10px;
+            .icon  {
+                font-size: 1.2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
 }
 
 @keyframes animateSidebar {
