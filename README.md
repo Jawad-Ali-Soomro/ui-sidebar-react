@@ -20,7 +20,67 @@ A lightweight, customizable React sidebar component with essential navigation fe
 - 🔳 Configurable border radius
 - 📱 Responsive design
 
+## Props
+items | Array | [] | Navigation items array — each should include text, link, and icon.
+isOpen | boolean | — | Controls sidebar visibility.
+bgColor | string | "#111" | Sidebar background color.
+textColor | string | "#fff" | Text color for items.
+logo | string | — | Optional logo image URL to display at the top.
+tileColor | string | "orange" | Background color for hovered/active tiles.
+showLogout | boolean | — | Whether to show a logout button.
+logoutFn | function | — | Function triggered on logout click.
+radius | string | "10px" | Border radius of the sidebar container.
+
+
+## Usage
+
+```jsx
+import Sidebar from "ui-sidebar-react";
+import { FaHome, FaUser, FaSetting } from 'react-icons/fa'
+
+const items = [
+  {
+    text: "Home",
+    link: "/home",
+    icon:  FaHome,
+  },
+  {
+    text: "Profile",
+    link: "/profile",
+    icon: FaUser,
+  },
+  {
+    text: "Settings",
+    link: "/settings",
+    icon: FaSettings,
+  },
+];
+
+export default function App() {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleLogout = () => {
+    console.log("User logged out");
+  };
+
+  return (
+    <Sidebar
+      isOpen={isOpen} // Prop to show or hide Sidebar
+      items={items} // Array of items
+      logo="https://yourdomain.com/logo.png" // Replace with your logo
+      bgColor="#111" // replace with your bgColor
+      textColor="#fff" // replace with your text color
+      tileColor="orange" // replace with your tile color
+      showLogout={true} // show or hide logout button
+      logoutFn={handleLogout} // handle logout functions
+      radius="12px" // radius of tiles
+    />
+  );
+}
+
+
 ## Installation
+
 
 ### npm
 ```bash
