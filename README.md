@@ -20,21 +20,9 @@ A lightweight, customizable React sidebar component with essential navigation fe
 - 🔳 Configurable border radius
 - 📱 Responsive design
 
-## Props
-items | Array | [] | Navigation items array — each should include text, link, and icon.
-isOpen | boolean | — | Controls sidebar visibility.
-bgColor | string | "#111" | Sidebar background color.
-textColor | string | "#fff" | Text color for items.
-logo | string | — | Optional logo image URL to display at the top.
-tileColor | string | "orange" | Background color for hovered/active tiles.
-showLogout | boolean | — | Whether to show a logout button.
-logoutFn | function | — | Function triggered on logout click.
-radius | string | "10px" | Border radius of the sidebar container.
-
-
 ## Usage
 
-```jsx
+<pre>
 import Sidebar from "ui-sidebar-react";
 import { FaHome, FaUser, FaSetting } from 'react-icons/fa'
 
@@ -76,12 +64,5 @@ export default function App() {
       radius="12px" // radius of tiles
     />
   );
-}```
-
-
-## Installation
-
-
-### npm
-```bash
-npm install ui-sidebar-react```
+}
+ </pre>
