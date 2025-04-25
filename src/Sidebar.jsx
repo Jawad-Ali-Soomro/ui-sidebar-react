@@ -10,8 +10,7 @@ const Sidebar = ({
   tileColor = "orange",
   showLogout,
   logoutFn,
-  radius = "10px",
-  Icon,
+  radius = "10px"
 }) => {
   const [open, setIsOpen] = React.useState(isOpen);
   React.useEffect(() => {
@@ -32,6 +31,7 @@ const Sidebar = ({
             <img className="logo" src={logo} alt="" />
             <div className="navigation">
               {items?.map((item, i) => {
+                const ItemIcon = item?.icon
                 return (
                   <a
                     href={item?.link}
@@ -39,7 +39,7 @@ const Sidebar = ({
                     key={i}
                     style={{ background: tileColor, borderRadius: radius }}
                   >
-                    {Icon && <Icon />}
+                      {ItemIcon && <ItemIcon />}
                     <p>{item?.text}</p>
                   </a>
                 );
