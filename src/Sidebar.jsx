@@ -6,14 +6,6 @@ import {
   LiaArrowRightSolid,
 } from "react-icons/lia";
 
-const isValidUrl = (url) => {
-  try {
-    return Boolean(new URL(url));
-  } catch (e) {
-    return false;
-  }
-};
-
 const Sidebar = ({
   items = [],
   isOpen,
@@ -56,7 +48,7 @@ const Sidebar = ({
               {items?.map((item, i) => {
                 const ItemIcon = item?.icon;
                 const hasSubLinks = item?.subLinks?.length > 0;
-                const hasLink = item?.link && isValidUrl(item.link);
+                const hasLink = item?.link;
 
                 if (hasSubLinks) {
                   return (
