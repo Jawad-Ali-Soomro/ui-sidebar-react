@@ -76,7 +76,7 @@ export default function App() {
       radius="12px" // radius of tiles
     />
   );
-}
+}```
 
 
 ## Installation
@@ -84,4 +84,4 @@ export default function App() {
 
 ### npm
 ```bash
-npm install ui-sidebar-react
+npm install ui-sidebar-react```
