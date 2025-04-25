@@ -20,17 +20,23 @@ A lightweight, customizable React sidebar component with essential navigation fe
 - 🔳 Configurable border radius
 - 📱 Responsive design
 
+## Installation
+
+```bash
+npm i ui-sidebar-react
+```
+
 ## Usage
 
-<pre>
+```jsx
 import Sidebar from "ui-sidebar-react";
-import { FaHome, FaUser, FaSetting } from 'react-icons/fa'
+import { FaHome, FaUser, FaSetting } from "react-icons/fa";
 
 const items = [
   {
     text: "Home",
     link: "/home",
-    icon:  FaHome,
+    icon: FaHome,
   },
   {
     text: "Profile",
@@ -65,4 +71,4 @@ export default function App() {
     />
   );
 }
- </pre>
+```
